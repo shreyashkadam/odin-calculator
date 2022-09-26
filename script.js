@@ -24,3 +24,7 @@ function divide(){
     return arguments[0] / arguments[1];
 }
 
+function operate(fun, a, b){
+    return fun(a,b);
+};
+

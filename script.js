@@ -9,11 +9,13 @@ const numSeven = document.getElementById('num-7')
 const numEight = document.getElementById('num-8')
 const numNine = document.getElementById('num-9')
 
-const eqBtn= document.getElementById("eq-btn");
+const eqBtn = document.getElementById("eq-btn");
 const multBtn = document.getElementById("mult-btn");
 const addBtn = document.getElementById("add-btn");
 const divBtn = document.getElementById("div-btn");
 const subBtn = document.getElementById("sub-btn");
+
+const clearBtn = document.getElementById("clear-btn");
 
 const displayLowerContainer = document.querySelector(".display-lower-container");
 const displayUpperContainer = document.querySelector(".display-upper-container");
@@ -25,23 +27,33 @@ let currentNumber = 0;
 let tempNumber = 0;
 let currentFun = null;
 let result = 0;
+let funFlag = false;
 
-function populateLowerDisplay(num){
-    if(displayLowerContainer.textContent == "0"){
+function populateLowerDisplay(num) {
+    if (displayLowerContainer.textContent == "0") {
         displayLowerContainer.textContent = null;
-    } 
+    }
     displayLowerContainer.textContent = displayLowerContainer.textContent.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim() + num;
     tempNumber = parseInt(displayLowerContainer.textContent);
 };
 
-function setOperator(fun, sign){
-    currentFun = fun;
-    currentNumber = tempNumber;
-    if(displayUpperContainer.textContent == "0"){
-        displayUpperContainer.textContent = null;
-    } 
-    displayUpperContainer.textContent = `${currentNumber} ${sign} `
-    displayLowerContainer.textContent = 0;
+function setOperator(fun, sign) {
+    if (funFlag == false) {
+        currentFun = fun;
+        currentNumber = tempNumber;
+        if (displayUpperContainer.textContent == "0") {
+            displayUpperContainer.textContent = null;
+        }
+        displayUpperContainer.textContent = (tempNumber + " " + sign + " ");
+        displayLowerContainer.textContent = 0;
+    } else {
+        result = operate(currentFun, currentNumber, tempNumber);
+        currentFun = fun;
+        currentNumber = result;
+        displayUpperContainer.textContent += (tempNumber + " " + sign + " ");
+        displayLowerContainer.textContent = 0;
+    }
+    funFlag = true;
 };
 
 addBtn.addEventListener('click', () => {
@@ -64,6 +76,10 @@ eqBtn.addEventListener('click', () => {
     displayUpperContainer.textContent = operate(currentFun, currentNumber, tempNumber);
     displayLowerContainer.textContent = 0;
 });
+
+clearBtn.addEventListener('click', () => {
+    window.location.reload();
+})
 
 numZero.addEventListener('click', () => {
     populateLowerDisplay(0);

@@ -1,3 +1,8 @@
+@font-face {
+    font-family: digitalCalc;
+    src: url(./fonts/digital-7.ttf);
+}
+
 .main {
     display: flex;
     justify-content: center;
@@ -17,6 +22,23 @@
 
 .display-screen{
     border: black solid 2px;
+    font-family: digitalCalc, Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.display-upper-container{
+    flex-grow: 1;
+}
+
+.display-lower-container{
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 
 .lower-part{

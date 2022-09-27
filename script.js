@@ -9,30 +9,65 @@ const numSeven = document.getElementById('num-7')
 const numEight = document.getElementById('num-8')
 const numNine = document.getElementById('num-9')
 
+const eqBtn= document.getElementById("eq-btn");
+const multBtn = document.getElementById("mult-btn");
+const addBtn = document.getElementById("add-btn");
+const divBtn = document.getElementById("div-btn");
+const subBtn = document.getElementById("sub-btn");
+
 const displayLowerContainer = document.querySelector(".display-lower-container");
+const displayUpperContainer = document.querySelector(".display-upper-container");
 
 displayLowerContainer.textContent = 0;
+displayUpperContainer.textContent = 0;
 
-let firstNumber = 0;
-
-
-function maintainNumber(num) {
-    firstNumber = firstNumber + num * (10 ** steps);
-    steps++; 
-}
+let currentNumber = 0;
+let tempNumber = 0;
+let currentFun = null;
+let result = 0;
 
 function populateLowerDisplay(num){
     if(displayLowerContainer.textContent == "0"){
         displayLowerContainer.textContent = null;
     } 
     displayLowerContainer.textContent = displayLowerContainer.textContent.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim() + num;
-    firstNumber = parseInt(displayLowerContainer.textContent);
-}
+    tempNumber = parseInt(displayLowerContainer.textContent);
+};
 
+function setOperator(fun, sign){
+    currentFun = fun;
+    currentNumber = tempNumber;
+    if(displayUpperContainer.textContent == "0"){
+        displayUpperContainer.textContent = null;
+    } 
+    displayUpperContainer.textContent = `${currentNumber} ${sign} `
+    displayLowerContainer.textContent = 0;
+};
+
+addBtn.addEventListener('click', () => {
+    setOperator(add, "+");
+});
+
+subBtn.addEventListener('click', () => {
+    setOperator(subtract, "-");
+});
+
+multBtn.addEventListener('click', () => {
+    setOperator(multiply, "*");
+});
+
+divBtn.addEventListener('click', () => {
+    setOperator(divide, "/");
+});
+
+eqBtn.addEventListener('click', () => {
+    displayUpperContainer.textContent = operate(currentFun, currentNumber, tempNumber);
+    displayLowerContainer.textContent = 0;
+});
 
 numZero.addEventListener('click', () => {
     populateLowerDisplay(0);
-})
+});
 
 numOne.addEventListener('click', () => {
     populateLowerDisplay(1);
@@ -69,27 +104,6 @@ numEight.addEventListener('click', () => {
 numNine.addEventListener('click', () => {
     populateLowerDisplay(9);
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function add() {

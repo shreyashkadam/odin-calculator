@@ -3,11 +3,23 @@
     src: url(./fonts/digital-7.ttf);
 }
 
+html,
+body{
+    margin: 0;
+    height: 100%;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .main {
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .calculator-body {

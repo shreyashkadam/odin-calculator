@@ -73,7 +73,8 @@ divBtn.addEventListener('click', () => {
 });
 
 eqBtn.addEventListener('click', () => {
-    displayUpperContainer.textContent = operate(currentFun, currentNumber, tempNumber);
+    let num = operate(currentFun, currentNumber, tempNumber);
+    displayUpperContainer.textContent = Math.round((num + Number.EPSILON) * 100000) / 100000;
     displayLowerContainer.textContent = 0;
 });
 

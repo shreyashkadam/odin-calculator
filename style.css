@@ -4,12 +4,12 @@
 }
 
 html,
-body{
+body {
     margin: 0;
     height: 100%;
 }
 
-body{
+body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +19,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
 
 .calculator-body {
@@ -35,7 +35,7 @@ body{
     box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
 }
 
-.display-screen{
+.display-screen {
     border: black solid 2px;
     background-color: #b2b9b7;
     font-family: digitalCalc, Arial, Helvetica, sans-serif;
@@ -43,29 +43,29 @@ body{
     padding: 15px;
     display: flex;
     flex-direction: column;
-    
+
 }
 
-.display-upper-container{
+.display-upper-container {
     flex-grow: 1;
 }
 
-.display-lower-container{
+.display-lower-container {
     flex-grow: 1;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
 }
 
-.lower-part{
+.lower-part {
     display: grid;
     grid-template-columns: 3fr 2fr;
     grid-gap: 20px;
 }
 
-.numbers > button,
-.right-part > button,
-.right-part > .operators > button{
+.numbers>button,
+.right-part>button,
+.right-part>.operators>button {
     font-size: 25px;
     font-weight: bold;
     color: white;
@@ -76,84 +76,53 @@ body{
     border: black solid 2px;
 }
 
-.numbers > button:active,
-.right-part > button:active,
-.right-part > .operators > button:active{
+.numbers>button:active,
+.right-part>button:active,
+.right-part>.operators>button:active {
     box-shadow: 0px 0px 0px 0px;
     top: 5px;
     left: 5px;
 }
 
-.numbers{
+.numbers {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 10px
 }
 
-#clear-btn{
+#clear-btn {
     background-color: #FF0000;
 }
 
-.right-part > button,
-.right-part > .operators > button{
+.right-part>button,
+.right-part>.operators>button {
     background-color: #1B1923;
 }
 
-.numbers > button{
+.numbers>button {
     background-color: #878390;
 }
 
-.num-0{
+.num-0 {
     grid-column-start: 2;
 }
 
-.right-part{
+.right-part {
     display: grid;
     grid-template-rows: 1fr 3fr;
     grid-gap: 10px;
 }
 
-.operators{
+.operators {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px;
 }
 
-.eq-btn{
+.eq-btn {
     grid-row-start: 2;
     grid-row-end: 4;
     grid-column-start: 2;
 }
 
-<!-- HTML !-->
-<button class="button-54" role="button">Button 54</button>
-
-/* CSS */
-.button-54 {
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  letter-spacing: 2px;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #000;
-  cursor: pointer;
-  border: 3px solid;
-  padding: 0.25em 0.5em;
-  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
-  position: relative;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.button-54:active {
-  box-shadow: 0px 0px 0px 0px;
-  top: 5px;
-  left: 5px;
-}
-
-@media (min-width: 768px) {
-  .button-54 {
-    padding: 0.25em 0.75em;
-  }
-}
+< !-- HTML !--><button class="button-54" role="button">Button 54</button>
